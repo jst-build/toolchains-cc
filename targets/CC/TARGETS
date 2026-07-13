@@ -1,0 +1,68 @@
+local toolchain_config = jst.env('TOOLCHAIN_CONFIG', default={});
+local use_libcxx = jst.get('USE_LIBCXX', toolchain_config, default=false);
+local static_runlibs = jst.get('STATIC_RUNLIBS', toolchain_config, default=false);
+local assert_amd64(arch) = !arch || arch == "x86_64" || arch == "amd64";
+
+{
+  defaults: {
+    type: @'//CC:defaults',
+    arguments_config: ['TOOLCHAIN_CONFIG'],
+    base: ['clang_defaults'],
+    CC:
+      local force_cc = jst.get('FORCE_CC', toolchain_config);
+      if force_cc then [force_cc] else ['clang/bin/clang'],
+    CXX:
+      local force_cxx = jst.get('FORCE_CXX', toolchain_config);
+      if force_cxx then [force_cxx] else ['clang/bin/clang++'],
+    AR:
+      local force_ar = jst.get('FORCE_AR', toolchain_config);
+      if force_ar then [force_ar] else ['clang/bin/llvm-ar'],
+    DWP:
+      local force_dwp = jst.get('FORCE_DWP', toolchain_config);
+      if force_dwp then [force_dwp] else ['clang/bin/llvm-dwp'],
+    ADD_CXXFLAGS:
+      if use_libcxx then ['-nostdlib++', '-stdlib=libc++'],
+    ADD_LDFLAGS:
+      if static_runlibs then
+        ['-static-libgcc']
+        + (if use_libcxx then
+             [
+               '-Wl,--push-state',
+               '-Wl,-Bstatic',
+               '-lc++',
+               '-lc++abi',
+               '-Wl,--pop-state',
+               '-lpthread',
+             ]
+           else
+             ['-static-libstdc++', '-l:libstdc++.a']),
+    PATH: jst.get('PATH', toolchain_config, default=['/bin', '/usr/bin']),
+    deps:
+      if use_libcxx && !static_runlibs then [@'clang//:libcxx_shared'],
+    toolchain: ['clang_toolchain'],
+  },
+
+  // Restage Clang installation into subdirectory 'clang' so it does not
+  // conflict with other potential toolchains.
+  clang_toolchain: {
+    type: 'install',
+    dirs: [[@'clang//:INSTALL', 'clang']],
+  },
+
+  // Reconfigure base toolchain's defaults (flags) to enforce amd64 (this is not
+  // a cross compiler) and compiler family Clang.
+  clang_defaults: {
+    type: 'configure',
+    arguments_config: ['ARCH', 'HOST_ARCH', 'TARGET_ARCH', 'TOOLCHAIN_CONFIG'],
+    config:
+      local arch = jst.env('ARCH');
+      local host = jst.env('HOST_ARCH', default=arch);
+      local target = jst.env('TARGET_ARCH', default=arch);
+      if assert_amd64(arch) && assert_amd64(host) && assert_amd64(target) then {
+        TOOLCHAIN_CONFIG:
+          jst.env('TOOLCHAIN_CONFIG', default={}) + { FAMILY: 'clang' },
+      } else
+        jst.fail("This prebuilt Clang cannot be used for cross compilation."),
+    target: @'base//CC:defaults',
+  },
+}

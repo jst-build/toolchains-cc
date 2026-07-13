@@ -1,0 +1,57 @@
+{
+  // The entire Clang installation.
+  INSTALL: {
+    type: 'install',
+    deps: [jst.tree('.')],
+  },
+
+  // The libc++ shared library target.
+  libcxx_shared: {
+    type: @'rules//CC/prebuilt:library',
+    name: ['libc++'],
+    lib: ['file_libcxx_so_1'],
+    deps: ['libcxxabi_shared', 'libunwind_shared'],
+  },
+
+  // The libc++abi shared library target.
+  libcxxabi_shared: {
+    type: @'rules//CC/prebuilt:library',
+    name: ['libc++abi'],
+    lib: ['file_libcxxabi_so_1'],
+  },
+
+  // The libunwind shared library target.
+  libunwind_shared: {
+    type: @'rules//CC/prebuilt:library',
+    name: ['libunwind'],
+    lib: ['file_libunwind_so_1'],
+  },
+
+  // Extract libc++.so.1 from installation (resolve symlink)
+  file_libcxx_so_1: {
+    type: 'generic',
+    deps: ['INSTALL'],
+    cmds: ['cp -L lib/x86_64-unknown-linux-gnu/libc++.so.1 .'],
+    outs: ['libc++.so.1'],
+  },
+
+  // Extract libc++abi.so.1 from installation (resolve symlink)
+  file_libcxxabi_so_1: {
+    type: 'generic',
+    deps: ['INSTALL'],
+    cmds: [
+      'cp -L lib/x86_64-unknown-linux-gnu/libc++abi.so.1 .',
+    ],
+    outs: ['libc++abi.so.1'],
+  },
+
+  // Extract libunwind.so.1 from installation (resolve symlink)
+  file_libunwind_so_1: {
+    type: 'generic',
+    deps: ['INSTALL'],
+    cmds: [
+      'cp -L lib/x86_64-unknown-linux-gnu/libunwind.so.1 .',
+    ],
+    outs: ['libunwind.so.1'],
+  },
+}

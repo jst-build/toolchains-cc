@@ -1,0 +1,6 @@
+{
+  defaults: {
+    type: @'//CC/foreign:defaults',
+    base: [@'base//CC/foreign:defaults'],
+  },
+}

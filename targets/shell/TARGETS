@@ -1,0 +1,6 @@
+{
+  defaults: {
+    type: @'//shell:defaults',
+    base: [@'base//shell:defaults'],
+  },
+}

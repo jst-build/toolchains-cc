@@ -1,0 +1,6 @@
+{
+  defaults: {
+    type: 'defaults',
+    base: [@'base//lint:defaults'],
+  },
+}

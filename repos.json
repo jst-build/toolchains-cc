@@ -1,0 +1,57 @@
+{
+  "main": "toolchain",
+  "repositories": {
+    "targets": {
+      "repository": {
+        "type": "file",
+        "path": "targets"
+      }
+    },
+    "toolchain": {
+      "repository": "base_toolchain",
+      "target_root": "targets",
+      "rule_root": "base_toolchain",
+      "bindings": {
+        "base": "base_toolchain",
+        "clang": "clang"
+      }
+    },
+    "clang": {
+      "repository": {
+        "type": "archive",
+        "fetch": "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.8/clang+llvm-18.1.8-x86_64-linux-gnu-ubuntu-18.04.tar.xz",
+        "sha256": "54ec30358afcc9fb8aa74307db3046f5187f9fb89fb37064cdde906e062ebf36",
+        "content": "495971397e90fef8f731a1f1ad3ca1d25e845b9a",
+        "subdir": "clang+llvm-18.1.8-x86_64-linux-gnu-ubuntu-18.04"
+      },
+      "target_root": "targets",
+      "target_file_name": "clang.TARGETS",
+      "bindings": {
+        "rules": "base_toolchain"
+      }
+    },
+    "base_toolchain": {
+      "repository": "base_toolchain/rules",
+      "target_root": "base_toolchain/targets",
+      "rule_root": "base_toolchain/rules"
+    },
+    "base_toolchain/rules": {
+      "repository": {
+        "type": "git",
+        "repository": "https://github.com/jst-build/rules-cc",
+        "branch": "master",
+        "commit": "c18d9413f8759f8c261a3af06edf0861ee9e2492",
+        "subdir": "rules"
+      }
+    },
+    "base_toolchain/targets": {
+      "repository": {
+        "type": "git",
+        "repository": "https://github.com/jst-build/toolchains-cc",
+        "branch": "system",
+        "commit": "5505965c61432dea016055d0f12f483df40eb9ff",
+        "subdir": "targets"
+      }
+    }
+  }
+}
