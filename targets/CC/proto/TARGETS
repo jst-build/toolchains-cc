@@ -1,0 +1,20 @@
+{
+  defaults: {
+    type: @'//CC/proto:defaults',
+    PROTOC: ['protobuf/bin/protoc'],
+    deps: [@'protobuf//:libprotobuf'],
+    toolchain: ['protobuf_toolchain'],
+  },
+
+  'service defaults': {
+    type: @'//CC/proto:defaults',
+    base: [@'base//CC/proto:service defaults', 'defaults'],
+  },
+
+  // Restage Protobuf installation into subdirectory 'protobuf' so it does not
+  // conflict with other potential toolchains.
+  protobuf_toolchain: {
+    type: 'install',
+    dirs: [[@'protobuf//:INSTALL', 'protobuf']],
+  },
+}
