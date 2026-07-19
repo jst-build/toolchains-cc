@@ -1,0 +1,35 @@
+{
+  // Default target installing both binaries.
+  INSTALL: {
+    type: @'rules//CC:install-with-deps',
+    targets: ['add_person', 'list_people'],
+  },
+
+  // Binary relying on the addressbook proto library bindings.
+  add_person: {
+    type: @'rules//CC:binary',
+    name: ['add_person'],
+    srcs: ['add_person.cc'],
+    'private-proto': ['addressbook'],
+  },
+
+  // Binary relying on the addressbook proto library bindings.
+  list_people: {
+    type: @'rules//CC:binary',
+    name: ['list_people'],
+    srcs: ['list_people.cc'],
+    'private-proto': ['addressbook'],
+  },
+
+  // This is a pure proto library. Its sources are proto-files and dependencies
+  // are other proto libraries providing the proto-files needed for import
+  // statements. The actual C++ bindings are only produced once any 'CC:library'
+  // or 'CC:binary' target depends on them via their 'proto' or 'private-proto'
+  // fields.
+  addressbook: {
+    type: @'rules//proto:library',
+    name: ['addressbook'],
+    srcs: ['addressbook.proto'],
+    deps: [/* put depending protos here */],
+  },
+}

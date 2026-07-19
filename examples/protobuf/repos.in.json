@@ -1,0 +1,17 @@
+{
+  "main": "example",
+  "imports": [
+    {
+      "source": "git",
+      "branch": "protobuf/v29.0",
+      "url": "https://github.com/jst-build/toolchains-cc",
+      "repos": [{"alias": "toolchain"}]
+    }
+  ],
+  "repositories": {
+    "example": {
+      "repository": {"type": "file", "path": "src"},
+      "bindings": {"rules": "toolchain"}
+    }
+  }
+}

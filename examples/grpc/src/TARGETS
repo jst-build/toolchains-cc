@@ -1,0 +1,48 @@
+{
+  // Default target installing both binaries.
+  INSTALL: {
+    type: @'rules//CC:install-with-deps',
+    targets: ['route_guide_client', 'route_guide_server'],
+  },
+
+  // Binary relying on the route_guide_service proto library bindings.
+  route_guide_client: {
+    type: @'rules//CC:binary',
+    name: ['route_guide_client'],
+    srcs: ['route_guide_client.cc'],
+    'private-deps': ['helper'],
+    'private-proto': ['route_guide_service'],
+  },
+
+  // Binary relying on the route_guide_service proto library bindings.
+  route_guide_server: {
+    type: @'rules//CC:binary',
+    name: ['route_guide_server'],
+    srcs: ['route_guide_server.cc'],
+    'private-deps': ['helper'],
+    'private-proto': ['route_guide_service'],
+  },
+
+  // Library relying on the route_guide_service proto library bindings.
+  helper: {
+    type: @'rules//CC:library',
+    name: ['helper'],
+    hdrs: ['helper.h'],
+    srcs: ['helper.cc'],
+    'private-proto': ['route_guide_service'],
+  },
+
+  // This is a pure proto library. Its sources are proto-files and dependencies
+  // are other proto libraries providing the proto-files needed for import
+  // statements. Using the protoc gRPC plugin is enabled via the 'service' flag.
+  // The actual C++ bindings are only produced once any 'CC:library' or
+  // 'CC:binary' target depends on them via their 'proto' or 'private-proto'
+  // fields.
+  route_guide_service: {
+    type: @'rules//proto:library',
+    name: ['route_guide'],
+    service: ['yes'],   // <- enable protoc gRPC service support
+    srcs: ['route_guide.proto'],
+    deps: [/* put depending protos here */],
+  },
+}
