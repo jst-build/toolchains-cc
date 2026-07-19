@@ -1,0 +1,6 @@
+{
+  defaults: {
+    type: @'//CC:defaults',
+    base: [@'base//CC:defaults'],
+  },
+}

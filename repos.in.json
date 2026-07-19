@@ -1,0 +1,34 @@
+{
+  "main": "toolchain",
+  "imports": [
+    {
+      "source": "git",
+      "branch": "system",
+      "url": "https://github.com/jst-build/toolchains-cc",
+      "repos": [{"alias": "base_toolchain"}]
+    },
+    {
+      "source": "git",
+      "branch": "grpc/v1.70.2",
+      "config": "bundled.json",
+      "url": "https://github.com/jst-build/imports-cc.git",
+      "repos": [
+        {"alias": "grpc", "map": {"toolchain": "base_toolchain"}},
+        {"repo": "protobuf", "map": {"toolchain": "base_toolchain"}}
+      ]
+    }
+  ],
+  "repositories": {
+    "targets": {"repository": {"type": "file", "path": "targets"}},
+    "toolchain": {
+      "repository": "base_toolchain",
+      "target_root": "targets",
+      "rule_root": "base_toolchain",
+      "bindings": {
+        "base": "base_toolchain",
+        "grpc": "grpc",
+        "protobuf": "protobuf"
+      }
+    }
+  }
+}

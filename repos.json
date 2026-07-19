@@ -1,0 +1,331 @@
+{
+  "main": "toolchain",
+  "repositories": {
+    "targets": {
+      "repository": {
+        "type": "file",
+        "path": "targets"
+      }
+    },
+    "toolchain": {
+      "repository": "base_toolchain",
+      "target_root": "targets",
+      "rule_root": "base_toolchain",
+      "bindings": {
+        "base": "base_toolchain",
+        "grpc": "grpc",
+        "protobuf": "protobuf"
+      }
+    },
+    "base_toolchain": {
+      "repository": "base_toolchain/rules",
+      "target_root": "base_toolchain/targets",
+      "rule_root": "base_toolchain/rules"
+    },
+    "base_toolchain/rules": {
+      "repository": {
+        "type": "git",
+        "repository": "https://github.com/jst-build/rules-cc",
+        "branch": "master",
+        "commit": "c18d9413f8759f8c261a3af06edf0861ee9e2492",
+        "subdir": "rules"
+      }
+    },
+    "base_toolchain/targets": {
+      "repository": {
+        "type": "git",
+        "repository": "https://github.com/jst-build/toolchains-cc",
+        "branch": "system",
+        "commit": "5505965c61432dea016055d0f12f483df40eb9ff",
+        "subdir": "targets"
+      }
+    },
+    "grpc": {
+      "repository": {
+        "type": "archive",
+        "content": "87c37bc5be5d6ded368667d02958d488b94d6143",
+        "fetch": "https://github.com/grpc/grpc/archive/refs/tags/v1.70.2.tar.gz",
+        "sha256": "92f240f7267ed6cd8ba2be4c59a3b5b6ec0c4b4c466071b1e1d62165b25acf64",
+        "sha512": "4afd34b36b4d7c41260abad6d921154a3e7176a7a46de6ae97335697db5d11f61e37b08889c007463fc8f3e800788585f5f7d5b2cec12f89b69fc9bc15efd17f",
+        "subdir": "grpc-1.70.2",
+        "pragma": {
+          "special": "ignore"
+        }
+      },
+      "target_root": "grpc/grpc/targets",
+      "bindings": {
+        "rules": "grpc/grpc/rules",
+        "protobuf": "protobuf",
+        "ssl": "grpc/ssl",
+        "absl": "grpc/absl",
+        "zlib": "grpc/zlib",
+        "re2": "grpc/re2",
+        "cares": "grpc/grpc/grpc-cares"
+      }
+    },
+    "grpc/absl": {
+      "repository": {
+        "type": "archive",
+        "content": "b5cc395c49afa2a2dec1d9c4072500494b126974",
+        "fetch": "https://github.com/abseil/abseil-cpp/releases/download/20240722.0/abseil-cpp-20240722.0.tar.gz",
+        "sha256": "f50e5ac311a81382da7fa75b97310e4b9006474f9560ac46f54a9967f07d4ae3",
+        "sha512": "bd2cca8f007f2eee66f51c95a979371622b850ceb2ce3608d00ba826f7c494a1da0fba3c1427728f2c173fe50d59b701da35c2c9fdad2752a5a49746b1c8ef31",
+        "subdir": "abseil-cpp-20240722.0",
+        "mirrors": [
+          "https://storage.googleapis.com/grpc-bazel-mirror/github.com/abseil/abseil-cpp/archive/20240722.0.tar.gz"
+        ]
+      },
+      "target_root": "grpc/absl/targets",
+      "bindings": {
+        "rules": "grpc/absl/rules",
+        "patches": "grpc/absl/patches"
+      }
+    },
+    "grpc/absl/patches": {
+      "repository": {
+        "type": "git",
+        "repository": "https://github.com/jst-build/imports-cc.git",
+        "branch": "absl/v20240722.0",
+        "commit": "9f47ad1774e1498c2ce27d2f8c70a423e589d8c4",
+        "subdir": "patches"
+      }
+    },
+    "grpc/absl/rules": {
+      "repository": "base_toolchain",
+      "target_root": "grpc/absl/config",
+      "rule_root": "base_toolchain",
+      "bindings": {
+        "base": "base_toolchain"
+      }
+    },
+    "grpc/grpc/grpc-cares": {
+      "repository": {
+        "type": "archive",
+        "content": "4237a53f7a5dc1cfb4d04a6b6374f8674c32e271",
+        "fetch": "https://github.com/c-ares/c-ares/releases/download/cares-1_19_1/c-ares-1.19.1.tar.gz",
+        "sha256": "321700399b72ed0e037d0074c629e7741f6b2ec2dda92956abe3e9671d3e268e",
+        "sha512": "466a94efda626e815a6ef7a890637056339f883d549ea6055e289fd8cd2391130e5682c905c0fb3bd7e955af7f6deb793562c170eb0ee066a4a62085a82ba470",
+        "subdir": "c-ares-1.19.1"
+      },
+      "target_root": "grpc/grpc/targets",
+      "target_file_name": "cares.TARGETS",
+      "bindings": {
+        "rules": "grpc/proto_toolchain",
+        "grpc": "grpc"
+      }
+    },
+    "grpc/grpc/rules": {
+      "repository": "grpc/proto_toolchain",
+      "target_root": "grpc/grpc/config",
+      "rule_root": "grpc/proto_toolchain",
+      "bindings": {
+        "base": "grpc/proto_toolchain"
+      }
+    },
+    "grpc/proto_toolchain": {
+      "repository": "base_toolchain",
+      "target_root": "grpc/proto_toolchain/targets",
+      "rule_root": "base_toolchain",
+      "bindings": {
+        "base": "base_toolchain",
+        "protobuf": "protobuf"
+      }
+    },
+    "grpc/protobuf/rules": {
+      "repository": "base_toolchain",
+      "target_root": "grpc/protobuf/config",
+      "rule_root": "base_toolchain",
+      "bindings": {
+        "base": "base_toolchain"
+      }
+    },
+    "grpc/re2": {
+      "repository": {
+        "type": "archive",
+        "content": "8eebd70d7ebd33ac5d736090cecd7cfe1831b9e3",
+        "fetch": "https://github.com/google/re2/archive/refs/tags/2022-04-01.tar.gz",
+        "sha256": "1ae8ccfdb1066a731bba6ee0881baad5efd2cd661acd9569b689f2586e1a50e9",
+        "sha512": "fc3d7cc1ee6bd771719845566d83ffc8c4e19d838748e842a1e19c7564473c9a0a061bebb3966ffa82de6515346f9bbddc2d94ceb3de89233f58826774bd7ce7",
+        "subdir": "re2-2022-04-01",
+        "mirrors": [
+          "https://storage.googleapis.com/grpc-bazel-mirror/github.com/google/re2/archive/2022-04-01.tar.gz"
+        ]
+      },
+      "target_root": "grpc/re2/targets",
+      "bindings": {
+        "rules": "grpc/re2/rules"
+      }
+    },
+    "grpc/re2/rules": {
+      "repository": "base_toolchain",
+      "target_root": "grpc/re2/config",
+      "rule_root": "base_toolchain",
+      "bindings": {
+        "base": "base_toolchain"
+      }
+    },
+    "grpc/ssl": {
+      "repository": {
+        "type": "archive",
+        "content": "d9ff3aa3d22337e93cb0a0e2df00ca8abea2fac6",
+        "fetch": "https://github.com/google/boringssl/archive/dec0d8f681348af8bb675e07bd89989665fca8bc.tar.gz",
+        "sha256": "2f12c33d2cf25a658a1b981fb96923dac87e9175fb20e45db6950ee36c526356",
+        "sha512": "51f91bee640e38ce20c180195de6811b5be7522240faae2b57158fa9c298ed09292ecb09c770df5d4fc6a3100bc2459de4e9d312e315265c1ea7ade347bad3f2",
+        "subdir": "boringssl-dec0d8f681348af8bb675e07bd89989665fca8bc",
+        "mirrors": [
+          "https://storage.googleapis.com/grpc-bazel-mirror/github.com/google/boringssl/archive/dec0d8f681348af8bb675e07bd89989665fca8bc.tar.gz"
+        ]
+      },
+      "target_root": "grpc/ssl/targets",
+      "bindings": {
+        "rules": "grpc/ssl/rules"
+      }
+    },
+    "grpc/ssl/rules": {
+      "repository": "base_toolchain",
+      "target_root": "grpc/ssl/config",
+      "rule_root": "base_toolchain",
+      "bindings": {
+        "base": "base_toolchain"
+      }
+    },
+    "grpc/zlib": {
+      "repository": {
+        "type": "archive",
+        "content": "53fa48bf97f0ee0f42c62743b018507a6583ec3e",
+        "fetch": "https://github.com/madler/zlib/releases/download/v1.3.1/zlib-1.3.1.tar.gz",
+        "sha256": "9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23",
+        "sha512": "580677aad97093829090d4b605ac81c50327e74a6c2de0b85dd2e8525553f3ddde17556ea46f8f007f89e435493c9a20bc997d1ef1c1c2c23274528e3c46b94f",
+        "subdir": "zlib-1.3.1"
+      },
+      "target_root": "grpc/zlib/targets",
+      "bindings": {
+        "rules": "base_toolchain"
+      }
+    },
+    "grpc/absl/config": {
+      "repository": {
+        "type": "git",
+        "repository": "https://github.com/jst-build/imports-cc.git",
+        "branch": "absl/v20240722.0",
+        "commit": "9f47ad1774e1498c2ce27d2f8c70a423e589d8c4",
+        "subdir": "config"
+      }
+    },
+    "grpc/absl/targets": {
+      "repository": {
+        "type": "git",
+        "repository": "https://github.com/jst-build/imports-cc.git",
+        "branch": "absl/v20240722.0",
+        "commit": "9f47ad1774e1498c2ce27d2f8c70a423e589d8c4",
+        "subdir": "targets"
+      }
+    },
+    "grpc/grpc/config": {
+      "repository": {
+        "type": "git",
+        "repository": "https://github.com/jst-build/imports-cc.git",
+        "branch": "grpc/v1.70.2",
+        "commit": "0a04fd9d59d6d4ce7e435693e5695c8f90c46790",
+        "subdir": "config"
+      }
+    },
+    "grpc/grpc/targets": {
+      "repository": {
+        "type": "git",
+        "repository": "https://github.com/jst-build/imports-cc.git",
+        "branch": "grpc/v1.70.2",
+        "commit": "0a04fd9d59d6d4ce7e435693e5695c8f90c46790",
+        "subdir": "targets"
+      }
+    },
+    "grpc/proto_toolchain/targets": {
+      "repository": {
+        "type": "git",
+        "repository": "https://github.com/jst-build/toolchains-cc.git",
+        "branch": "protobuf/v29.0",
+        "commit": "156ccd0d5fc7d557cf3cb13518a97114855f888c",
+        "subdir": "targets"
+      }
+    },
+    "grpc/protobuf/config": {
+      "repository": {
+        "type": "git",
+        "repository": "https://github.com/jst-build/imports-cc.git",
+        "branch": "protobuf/v29.0",
+        "commit": "2a866d810865b201cce86cab9f36c9a4a85d5b42",
+        "subdir": "config"
+      }
+    },
+    "grpc/protobuf/targets": {
+      "repository": {
+        "type": "git",
+        "repository": "https://github.com/jst-build/imports-cc.git",
+        "branch": "protobuf/v29.0",
+        "commit": "2a866d810865b201cce86cab9f36c9a4a85d5b42",
+        "subdir": "targets"
+      }
+    },
+    "grpc/re2/config": {
+      "repository": {
+        "type": "git",
+        "repository": "https://github.com/jst-build/imports-cc.git",
+        "branch": "re2/v2022-04-01",
+        "commit": "255ab986c66d1a010678ec76a56fdd2b20e323ad",
+        "subdir": "config"
+      }
+    },
+    "grpc/re2/targets": {
+      "repository": {
+        "type": "git",
+        "repository": "https://github.com/jst-build/imports-cc.git",
+        "branch": "re2/v2022-04-01",
+        "commit": "255ab986c66d1a010678ec76a56fdd2b20e323ad",
+        "subdir": "targets"
+      }
+    },
+    "grpc/ssl/config": {
+      "repository": {
+        "type": "git",
+        "repository": "https://github.com/jst-build/imports-cc.git",
+        "branch": "boringssl/dec0d8f6",
+        "commit": "967af575ceaae6cfc497c6b4b9af49d2eaf5ad64",
+        "subdir": "config"
+      }
+    },
+    "grpc/ssl/targets": {
+      "repository": {
+        "type": "git",
+        "repository": "https://github.com/jst-build/imports-cc.git",
+        "branch": "boringssl/dec0d8f6",
+        "commit": "967af575ceaae6cfc497c6b4b9af49d2eaf5ad64",
+        "subdir": "targets"
+      }
+    },
+    "grpc/zlib/targets": {
+      "repository": {
+        "type": "git",
+        "repository": "https://github.com/jst-build/imports-cc.git",
+        "branch": "zlib/v1.3.1",
+        "commit": "8631d63e55cbb5b7adc32bba61b158df7076d42f",
+        "subdir": "targets"
+      }
+    },
+    "protobuf": {
+      "repository": {
+        "type": "archive",
+        "content": "e8787a2f6d661aaaec426743c4e9667be7c8ba2f",
+        "fetch": "https://github.com/protocolbuffers/protobuf/releases/download/v29.0/protobuf-29.0.tar.gz",
+        "sha256": "10a0d58f39a1a909e95e00e8ba0b5b1dc64d02997f741151953a2b3659f6e78c",
+        "sha512": "c5637486a533557ea909d1f880b0f0064fff0c4665612e023170941310c45bf8e7373d2c67de621824b056530e98792c00799d71ec4ff7b6af9142cdc4cb8dee",
+        "subdir": "protobuf-29.0"
+      },
+      "target_root": "grpc/protobuf/targets",
+      "bindings": {
+        "rules": "grpc/protobuf/rules",
+        "zlib": "grpc/zlib",
+        "absl": "grpc/absl"
+      }
+    }
+  }
+}
