@@ -60,7 +60,7 @@
         "absl": "grpc/absl",
         "zlib": "grpc/zlib",
         "re2": "grpc/re2",
-        "cares": "grpc/grpc/grpc-cares"
+        "cares": "grpc/cares"
       }
     },
     "grpc/absl": {
@@ -86,7 +86,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "absl/v20240722.0",
-        "commit": "9f47ad1774e1498c2ce27d2f8c70a423e589d8c4",
+        "commit": "73bf113616f6c0a470d7e9fd22cf13653dbf8f57",
         "subdir": "patches"
       }
     },
@@ -98,7 +98,7 @@
         "base": "base_toolchain"
       }
     },
-    "grpc/grpc/grpc-cares": {
+    "grpc/cares": {
       "repository": {
         "type": "archive",
         "content": "4237a53f7a5dc1cfb4d04a6b6374f8674c32e271",
@@ -107,11 +107,9 @@
         "sha512": "466a94efda626e815a6ef7a890637056339f883d549ea6055e289fd8cd2391130e5682c905c0fb3bd7e955af7f6deb793562c170eb0ee066a4a62085a82ba470",
         "subdir": "c-ares-1.19.1"
       },
-      "target_root": "grpc/grpc/targets",
-      "target_file_name": "cares.TARGETS",
+      "target_root": "grpc/cares/targets",
       "bindings": {
-        "rules": "grpc/proto_toolchain",
-        "grpc": "grpc"
+        "rules": "base_toolchain"
       }
     },
     "grpc/grpc/rules": {
@@ -208,7 +206,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "absl/v20240722.0",
-        "commit": "9f47ad1774e1498c2ce27d2f8c70a423e589d8c4",
+        "commit": "73bf113616f6c0a470d7e9fd22cf13653dbf8f57",
         "subdir": "config"
       }
     },
@@ -217,7 +215,16 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "absl/v20240722.0",
-        "commit": "9f47ad1774e1498c2ce27d2f8c70a423e589d8c4",
+        "commit": "73bf113616f6c0a470d7e9fd22cf13653dbf8f57",
+        "subdir": "targets"
+      }
+    },
+    "grpc/cares/targets": {
+      "repository": {
+        "type": "git",
+        "repository": "https://github.com/jst-build/imports-cc.git",
+        "branch": "cares/v1.19.1",
+        "commit": "180f04ea55b6e7f8c8ca55d71de3ff004c82872d",
         "subdir": "targets"
       }
     },
@@ -226,7 +233,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "grpc/v1.70.2",
-        "commit": "0a04fd9d59d6d4ce7e435693e5695c8f90c46790",
+        "commit": "49350bbfba8745679d5e28ecf78473497abd514c",
         "subdir": "config"
       }
     },
@@ -235,7 +242,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "grpc/v1.70.2",
-        "commit": "0a04fd9d59d6d4ce7e435693e5695c8f90c46790",
+        "commit": "49350bbfba8745679d5e28ecf78473497abd514c",
         "subdir": "targets"
       }
     },
@@ -253,7 +260,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "protobuf/v29.0",
-        "commit": "2a866d810865b201cce86cab9f36c9a4a85d5b42",
+        "commit": "c20cdebbafc86bd60400bed476e3a39c9f8ade34",
         "subdir": "config"
       }
     },
@@ -262,7 +269,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "protobuf/v29.0",
-        "commit": "2a866d810865b201cce86cab9f36c9a4a85d5b42",
+        "commit": "c20cdebbafc86bd60400bed476e3a39c9f8ade34",
         "subdir": "targets"
       }
     },
@@ -271,7 +278,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "re2/v2022-04-01",
-        "commit": "255ab986c66d1a010678ec76a56fdd2b20e323ad",
+        "commit": "868cc74b3ba6c9da4f3b83d251fff0a85de1bd94",
         "subdir": "config"
       }
     },
@@ -280,7 +287,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "re2/v2022-04-01",
-        "commit": "255ab986c66d1a010678ec76a56fdd2b20e323ad",
+        "commit": "868cc74b3ba6c9da4f3b83d251fff0a85de1bd94",
         "subdir": "targets"
       }
     },
@@ -289,7 +296,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "boringssl/dec0d8f6",
-        "commit": "967af575ceaae6cfc497c6b4b9af49d2eaf5ad64",
+        "commit": "348b6889eccfcba28ec152ce6c15d160980ed473",
         "subdir": "config"
       }
     },
@@ -298,7 +305,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "boringssl/dec0d8f6",
-        "commit": "967af575ceaae6cfc497c6b4b9af49d2eaf5ad64",
+        "commit": "348b6889eccfcba28ec152ce6c15d160980ed473",
         "subdir": "targets"
       }
     },
@@ -307,7 +314,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "zlib/v1.3.1",
-        "commit": "8631d63e55cbb5b7adc32bba61b158df7076d42f",
+        "commit": "30ca96d07d0a1e4d911455f62173b6c4e5cf5d03",
         "subdir": "targets"
       }
     },
