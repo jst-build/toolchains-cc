@@ -15,7 +15,7 @@ repository lock-file
 "imports": [
   {
     "source": "git",
-    "branch": "grpc/v1.70.2",
+    "branch": "grpc/v1.83.0",
     "url": "https://github.com/jst-build/toolchains-cc",
     "repos": [{"alias": "toolchain"}]
   },
