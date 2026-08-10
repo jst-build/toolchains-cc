@@ -8,7 +8,7 @@ The bundled toolchain is imported via this entry in the `repos.in.json` file:
 ```json
 {
   "source": "git",
-  "branch": "protobuf/v29.0",
+  "branch": "protobuf/v35.1",
   "url": "https://github.com/jst-build/toolchains-cc",
   "repos": [{"alias": "toolchain"}]
 }
