@@ -9,7 +9,7 @@
     },
     {
       "source": "git",
-      "branch": "protobuf/v29.0",
+      "branch": "protobuf/v35.1",
       "config": "bundled.json",
       "url": "https://github.com/jst-build/imports-cc",
       "repos": [{"alias": "protobuf", "map": {"toolchain": "base_toolchain"}}]

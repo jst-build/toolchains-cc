@@ -42,11 +42,11 @@
     "protobuf": {
       "repository": {
         "type": "archive",
-        "content": "e8787a2f6d661aaaec426743c4e9667be7c8ba2f",
-        "fetch": "https://github.com/protocolbuffers/protobuf/releases/download/v29.0/protobuf-29.0.tar.gz",
-        "sha256": "10a0d58f39a1a909e95e00e8ba0b5b1dc64d02997f741151953a2b3659f6e78c",
-        "sha512": "c5637486a533557ea909d1f880b0f0064fff0c4665612e023170941310c45bf8e7373d2c67de621824b056530e98792c00799d71ec4ff7b6af9142cdc4cb8dee",
-        "subdir": "protobuf-29.0"
+        "content": "1ebc7df7dfb7f82542975c620baada42c5121efa",
+        "fetch": "https://github.com/protocolbuffers/protobuf/releases/download/v35.1/protobuf-35.1.tar.gz",
+        "sha256": "f0b6838e7522a8da96126d487068c959bc624926368f3024ac8fd03abd0a1ac4",
+        "sha512": "3cf3bd6cf7789fe65b57f3062ca3eebcf1660fbabe2c8c8504382052cb47f3a2b9ea146579a0fde58edacb53fa8c6f9eee3efee4250c9facc872e6cb0755568e",
+        "subdir": "protobuf-35.1"
       },
       "target_root": "protobuf/protobuf/targets",
       "bindings": {
@@ -58,14 +58,11 @@
     "protobuf/absl": {
       "repository": {
         "type": "archive",
-        "content": "b5cc395c49afa2a2dec1d9c4072500494b126974",
-        "fetch": "https://github.com/abseil/abseil-cpp/releases/download/20240722.0/abseil-cpp-20240722.0.tar.gz",
-        "sha256": "f50e5ac311a81382da7fa75b97310e4b9006474f9560ac46f54a9967f07d4ae3",
-        "sha512": "bd2cca8f007f2eee66f51c95a979371622b850ceb2ce3608d00ba826f7c494a1da0fba3c1427728f2c173fe50d59b701da35c2c9fdad2752a5a49746b1c8ef31",
-        "subdir": "abseil-cpp-20240722.0",
-        "mirrors": [
-          "https://storage.googleapis.com/grpc-bazel-mirror/github.com/abseil/abseil-cpp/archive/20240722.0.tar.gz"
-        ]
+        "content": "5c4625ab1a6b191964f90bb5d4efd3c35cf891ae",
+        "fetch": "https://github.com/abseil/abseil-cpp/releases/download/20260526.0/abseil-cpp-20260526.0.tar.gz",
+        "sha256": "6e1aee535473414164bf83e4ebc40240dec71a4701f8a642d906e95bea1aea0c",
+        "sha512": "fe85ebdd451b126117df1c3a312a1d5b29fc3557d07bb248854639b2a0180e91003fd2331a0d938f4ffeae8966f1df67a488fa3bdab072e840bbfdc6e8a4f01b",
+        "subdir": "abseil-cpp-20260526.0"
       },
       "target_root": "protobuf/absl/targets",
       "bindings": {
@@ -77,8 +74,8 @@
       "repository": {
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
-        "branch": "absl/v20240722.0",
-        "commit": "9f47ad1774e1498c2ce27d2f8c70a423e589d8c4",
+        "branch": "absl/v20260526.0",
+        "commit": "42f657f6033904bc436cb160a98941a0536ccb61",
         "subdir": "patches"
       }
     },
@@ -116,8 +113,8 @@
       "repository": {
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
-        "branch": "absl/v20240722.0",
-        "commit": "9f47ad1774e1498c2ce27d2f8c70a423e589d8c4",
+        "branch": "absl/v20260526.0",
+        "commit": "42f657f6033904bc436cb160a98941a0536ccb61",
         "subdir": "config"
       }
     },
@@ -125,8 +122,8 @@
       "repository": {
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
-        "branch": "absl/v20240722.0",
-        "commit": "9f47ad1774e1498c2ce27d2f8c70a423e589d8c4",
+        "branch": "absl/v20260526.0",
+        "commit": "42f657f6033904bc436cb160a98941a0536ccb61",
         "subdir": "targets"
       }
     },
@@ -134,8 +131,8 @@
       "repository": {
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc",
-        "branch": "protobuf/v29.0",
-        "commit": "2a866d810865b201cce86cab9f36c9a4a85d5b42",
+        "branch": "protobuf/v35.1",
+        "commit": "13306a3cd44d9b0f090ed79f8a530e5eec8f89b6",
         "subdir": "config"
       }
     },
@@ -143,8 +140,8 @@
       "repository": {
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc",
-        "branch": "protobuf/v29.0",
-        "commit": "2a866d810865b201cce86cab9f36c9a4a85d5b42",
+        "branch": "protobuf/v35.1",
+        "commit": "13306a3cd44d9b0f090ed79f8a530e5eec8f89b6",
         "subdir": "targets"
       }
     },
@@ -153,7 +150,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "zlib/v1.3.1",
-        "commit": "8631d63e55cbb5b7adc32bba61b158df7076d42f",
+        "commit": "30ca96d07d0a1e4d911455f62173b6c4e5cf5d03",
         "subdir": "targets"
       }
     }
