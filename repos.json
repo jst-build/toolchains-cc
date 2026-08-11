@@ -242,7 +242,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "grpc/v1.83.0",
-        "commit": "97be4870af506232638f48718cfa958eda9b39c5",
+        "commit": "b035e91bdb67b8c60df5ab0f55209a3fe978b743",
         "subdir": "config"
       }
     },
@@ -251,7 +251,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "grpc/v1.83.0",
-        "commit": "97be4870af506232638f48718cfa958eda9b39c5",
+        "commit": "b035e91bdb67b8c60df5ab0f55209a3fe978b743",
         "subdir": "targets"
       }
     },
@@ -260,7 +260,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/toolchains-cc.git",
         "branch": "protobuf/v35.1",
-        "commit": "374829ed5051b97c4a32301ea8bcc78a3642614b",
+        "commit": "d6f9ae6a5d89ba60a718ca899569c4a5b1e68ee3",
         "subdir": "targets"
       }
     },
@@ -269,7 +269,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "protobuf/v35.1",
-        "commit": "13306a3cd44d9b0f090ed79f8a530e5eec8f89b6",
+        "commit": "d3f4b056fd95bbb950442da74d28b3e1b2457c36",
         "subdir": "config"
       }
     },
@@ -278,7 +278,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "protobuf/v35.1",
-        "commit": "13306a3cd44d9b0f090ed79f8a530e5eec8f89b6",
+        "commit": "d3f4b056fd95bbb950442da74d28b3e1b2457c36",
         "subdir": "targets"
       }
     },
