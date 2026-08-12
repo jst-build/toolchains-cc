@@ -83,7 +83,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "absl/v20260526.0",
-        "commit": "475f952dc38eca2696fe2a224610369ccb2f90d8",
+        "commit": "17d25ee4f83e3674a44fff7b705c5d43655c795e",
         "subdir": "patches"
       }
     },
@@ -206,7 +206,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "absl/v20260526.0",
-        "commit": "475f952dc38eca2696fe2a224610369ccb2f90d8",
+        "commit": "17d25ee4f83e3674a44fff7b705c5d43655c795e",
         "subdir": "config"
       }
     },
@@ -215,7 +215,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "absl/v20260526.0",
-        "commit": "475f952dc38eca2696fe2a224610369ccb2f90d8",
+        "commit": "17d25ee4f83e3674a44fff7b705c5d43655c795e",
         "subdir": "targets"
       }
     },
@@ -242,7 +242,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "grpc/v1.83.0",
-        "commit": "6025f83db421027dee33ab0b9888749cfc99ccc3",
+        "commit": "5d366596931ebd806131d0fc967567d032dc1e8f",
         "subdir": "config"
       }
     },
@@ -251,7 +251,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "grpc/v1.83.0",
-        "commit": "6025f83db421027dee33ab0b9888749cfc99ccc3",
+        "commit": "5d366596931ebd806131d0fc967567d032dc1e8f",
         "subdir": "targets"
       }
     },
@@ -260,7 +260,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/toolchains-cc.git",
         "branch": "protobuf/v35.1",
-        "commit": "b07e7d39ffb5ca56477ee6d4193bd7ea5c3a2049",
+        "commit": "d0601ee16421721b9c7cca10c332a2db8868a81e",
         "subdir": "targets"
       }
     },
@@ -269,7 +269,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "protobuf/v35.1",
-        "commit": "d5b6a9fe3418743458808dc38b10267f181a0acd",
+        "commit": "4ac7e0dd9a92b752140357cfeaabc9066e8d22a0",
         "subdir": "config"
       }
     },
@@ -278,7 +278,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "protobuf/v35.1",
-        "commit": "d5b6a9fe3418743458808dc38b10267f181a0acd",
+        "commit": "4ac7e0dd9a92b752140357cfeaabc9066e8d22a0",
         "subdir": "targets"
       }
     },
@@ -287,7 +287,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "re2/v2025-11-05",
-        "commit": "b96bda2a271f43b284346ca68b713ac24e281300",
+        "commit": "a6069bcab47edf4260fee2631ce9c2e90a68e8e8",
         "subdir": "config"
       }
     },
@@ -296,7 +296,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "re2/v2025-11-05",
-        "commit": "b96bda2a271f43b284346ca68b713ac24e281300",
+        "commit": "a6069bcab47edf4260fee2631ce9c2e90a68e8e8",
         "subdir": "targets"
       }
     },
@@ -305,7 +305,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "boringssl/v0.20260803.0",
-        "commit": "c5d61573846031890091fe141d8c3b0869329d75",
+        "commit": "3e83de32512b004b1ac4f8e1df20a1e75f150b7a",
         "subdir": "config"
       }
     },
@@ -314,7 +314,7 @@
         "type": "git",
         "repository": "https://github.com/jst-build/imports-cc.git",
         "branch": "boringssl/v0.20260803.0",
-        "commit": "c5d61573846031890091fe141d8c3b0869329d75",
+        "commit": "3e83de32512b004b1ac4f8e1df20a1e75f150b7a",
         "subdir": "targets"
       }
     },
