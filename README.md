@@ -3,12 +3,12 @@
 Each toolchain lives on its own branch, listed below. Follow a link for details
 about its setup and usage.
 
-- [`system`](https://github.com/jst-build/toolchains-cc/blob/system/README.md)
-- [`clang-amd64-gnu/v18.1.8`](https://github.com/jst-build/toolchains-cc/blob/clang-amd64-gnu/v18.1.8/README.md)
-- [`protobuf/v29.0`](https://github.com/jst-build/toolchains-cc/blob/protobuf/v29.0/README.md)
-- [`protobuf/v35.1`](https://github.com/jst-build/toolchains-cc/blob/protobuf/v35.1/README.md)
-- [`grpc/v1.70.2`](https://github.com/jst-build/toolchains-cc/blob/grpc/v1.70.2/README.md)
-- [`grpc/v1.83.0`](https://github.com/jst-build/toolchains-cc/blob/grpc/v1.83.0/README.md)
+- [`system`](https://github.com/jst-build/toolchains-cc/tree/system)
+- [`clang-amd64-gnu/v18.1.8`](https://github.com/jst-build/toolchains-cc/tree/clang-amd64-gnu/v18.1.8)
+- [`protobuf/v29.0`](https://github.com/jst-build/toolchains-cc/tree/protobuf/v29.0)
+- [`protobuf/v35.1`](https://github.com/jst-build/toolchains-cc/tree/protobuf/v35.1)
+- [`grpc/v1.70.2`](https://github.com/jst-build/toolchains-cc/tree/grpc/v1.70.2)
+- [`grpc/v1.83.0`](https://github.com/jst-build/toolchains-cc/tree/grpc/v1.83.0)
 
 For more details on how to use those toolchains, see
 

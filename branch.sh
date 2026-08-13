@@ -216,7 +216,7 @@ EOF
     echo
     while IFS= read -r b; do
       [ -n "$b" ] || continue
-      echo "- [\`$b\`]($repo_url/blob/$b/README.md)"
+      echo "- [\`$b\`]($repo_url/tree/$b)"
     done <<< "$ordered"
     echo
     cat <<'EOF'
