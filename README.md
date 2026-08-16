@@ -12,7 +12,7 @@ repository lock-file
 "imports": [
   {
     "source": "git",
-    "branch": "clang-amd-gnu/v18.1.8",
+    "branch": "clang-amd64-gnu/v18.1.8",
     "url": "https://github.com/jst-build/toolchains-cc",
     "repos": [{"alias": "toolchain"}]
   },
